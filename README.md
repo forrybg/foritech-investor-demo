@@ -1,5 +1,13 @@
 # Foritech — Post-Quantum File Security (Investor Demo)
 
+[![Demo Only](https://img.shields.io/badge/demo-only-blue)](#)
+[![All rights reserved](https://img.shields.io/badge/license-all_rights_reserved-lightgrey)](#)
+[![Not for production](https://img.shields.io/badge/usage-not_for_production-orange)](#)
+[![PQC: Kyber768](https://img.shields.io/badge/PQC-Kyber768-informational)](#)
+[![CLI Available](https://img.shields.io/badge/CLI-available-success)](#)
+[![Proprietary](https://img.shields.io/badge/code-proprietary-critical)](#)
+
+
 **TL;DR:** Реален SDK + CLI за *post-quantum* защита на файлове (Kyber768 KEM + AEAD), X.509 хибридни екстенции (raw/SPKI), и леки TLS-PQC сесии (демо).  
 **Статус:** стабилен MVP с auto-streaming, tamper checks, и 13+ теста (green).  
 
