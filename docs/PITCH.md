@@ -3,16 +3,39 @@
 
 ---
 
-Foritech — Investor Pitch (Short)
+# Foritech — Investor Pitch (Short)
 
-Problem: Класическият RSA/ECDH в обмена на ключове е уязвим за бъдещи квантови атаки.
-Solution: Лек и практичен файл-контейнер (KEM Kyber768 + AEAD), X.509 екстенции и TLS-PQC сесии — с готов SDK/CLI.
+**Problem:** Classical RSA/ECDH key exchange will be vulnerable to future quantum attacks.  
 
-Why Us: Фокус върху реални use-cases (backup/restore, S3/MinIO обмен), лесна интеграция, стрийминг над големи файлове и проверки (SEC-1..3).
+**Solution:** Lightweight and practical file container (Kyber768 KEM + AEAD),  
+X.509 hybrid extensions, and TLS-PQC session demos — with a working SDK/CLI.
 
-Traction: Green CI, работещи демота, roadmap към Docker/PyPI/Hybrid TLS.
+**Why Us:**  
+- Focus on real use cases (backup/restore, S3/MinIO data exchange).  
+- Easy integration and developer experience.  
+- Streaming support for large files + security checks (tamper/order).  
+
+**Traction:**  
+- Green CI, running demos, roadmap toward Docker / PyPI / Hybrid TLS.
 
 ---
 
-**Notice:** This document and repository are provided for demonstration purposes only.  
-All rights reserved © 2025 Forrybg.
+## Roadmap Snapshot
+- ✅ Streaming container with tamper/order checks.  
+- ✅ X.509 raw/SPKI extensions & CLI.  
+- ✅ TLS-PQC session demo (KEM bootstrap + epochs).  
+- ⏭️ Multi-KEM fallback (Kyber+Classic).  
+- ⏭️ Docker image (liboqs + SDK).  
+- ⏭️ PyPI “lite” package with graceful fallback.  
+
+---
+
+## Security & Licensing
+- This demo is **not for production** use.  
+- Keys/secrets must always be generated locally.  
+- The core SDK remains **closed-source and proprietary**.  
+
+---
+
+> **CONFIDENTIAL — For investors only**  
+> All rights reserved © 2025 Forrybg
