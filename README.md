@@ -1,39 +1,38 @@
 # Foritech — Post-Quantum File Security (Investor Demo)
 
 [![Demo Only](https://img.shields.io/badge/demo-only-blue)](#)
-[![All rights reserved](https://img.shields.io/badge/license-all_rights_reserved-lightgrey)](#)
 [![Not for production](https://img.shields.io/badge/usage-not_for_production-orange)](#)
+[![All rights reserved](https://img.shields.io/badge/license-all_rights_reserved-lightgrey)](#)
 [![PQC: Kyber768](https://img.shields.io/badge/PQC-Kyber768-informational)](#)
 [![CLI Available](https://img.shields.io/badge/CLI-available-success)](#)
 [![Proprietary](https://img.shields.io/badge/code-proprietary-critical)](#)
 
+---
 
-**TL;DR:** Реален SDK + CLI за *post-quantum* защита на файлове (Kyber768 KEM + AEAD), X.509 хибридни екстенции (raw/SPKI), и леки TLS-PQC сесии (демо).  
-**Статус:** стабилен MVP с auto-streaming, tamper checks, и 13+ теста (green).  
+## Overview
+This repository provides an **investor-facing demonstration** of Foritech’s *post-quantum file security* system.  
+It showcases the **experience and capabilities** of our SDK/CLI without exposing the core implementation.
 
-## Highlights
-# - **Wrap/Unwrap с Kyber768 (liboqs)** и ChaCha20-Poly1305 (AEAD).
-# - **Streaming контейнер** (авто над 64MiB; forced флаг за малки файлове).
-# - **X.509 хибридни екстенции**: raw и SPKI-b64 в private OID; CLI: `x509-make`, `x509-info`, `x509-extract-pqc`.
-# - **TLS-PQC session demo**: еднократен KEM обмен + симетрична сесия; ping/pong и rotatable epochs.
-# - **CI**: леки проверки и док; full crypto тестове – отделно (изискват liboqs).
+Key features shown here:
+- **Kyber768 KEM + ChaCha20-Poly1305 AEAD** wrapping/unwrapping.
+- **Streaming container** (auto for large files, forced mode for small).
+- **X.509 hybrid extensions** (raw/SPKI in private OIDs).
+- **Lightweight TLS-PQC session demo**.
+- **CI**: lightweight checks & documentation (full crypto tests live in the private repo).
 
-> Този репозиторий показва *демо изживяване*. Истинският код е в основното repo:
-> - Core SDK/CLI: `forrybg/foritech-secure-system`
+---
 
-#---
+## Live Demo (5 min)
 
-## Live Demo (5 мин)
+1. **Install CLI from core project**  
+   (Requires access to the private repo)
 
-> Предпоставки: Python 3.12+, `foritech` CLI инсталиран от основното репо (editable), Kyber ключове.
-
-1) **Инсталация на CLI (от основния проект)**
-```bash
-git clone https://github.com/forrybg/foritech-secure-system.git
-cd foritech-secure-system
-python3 -m venv .venv && source .venv/bin/activate
-pip install -e .[dev]
-foritech --help
+   ```bash
+   git clone https://github.com/forrybg/foritech-secure-system.git
+   cd foritech-secure-system
+   python3 -m venv .venv && source .venv/bin/activate
+   pip install -e .[dev]
+   foritech --help
 
 python - <<'PY'
 import oqs, pathlib
@@ -52,46 +51,40 @@ bash scripts/demo_x509_spki.sh
 
 Why Now
 
-NIST финализира ML-KEM (Kyber) → натиск към PQC миграция.
+NIST has finalized ML-KEM (Kyber), pushing migration toward PQC.
 
-Storage/backup/cloud обмените са low hanging fruit за PQC KEM + AEAD.
+Storage/backup/cloud exchanges are prime candidates for KEM + AEAD.
 
-Нашият формат е прост, практичен и съвместим с liboqs.
+Our format is practical, compatible with liboqs, and integration-friendly.
 
 Roadmap Snapshot
 
-✅ Streaming контейнер + SEC-1..3 проверки (tamper/order/strict).
+✅ Streaming container + tamper/order checks.
 
-✅ X.509 raw/SPKI екстенции и CLI.
+✅ X.509 raw/SPKI extensions & CLI.
 
 ✅ TLS-PQC session demo (KEM bootstrap + epochs).
 
 ⏭️ Multi-KEM fallback (Kyber+Classic).
 
-⏭️ Docker образ (liboqs + SDK) и GitHub Packages.
+⏭️ Docker image (liboqs + SDK) on GitHub Packages.
 
-⏭️ PyPI „lite“ пакет с graceful fallback при липса на liboqs.
+⏭️ PyPI “lite” package with graceful fallback.
 
 Security Notes
 
-Не комитвайте ключове/секрети. Генерирайте локално.
+Do not commit keys/secrets — always generate locally.
 
-Контейнерът е AEAD-authenticated; header MAC + frame checks.
+Containers are AEAD-authenticated with header MAC + frame checks.
 
-Настройте FORITECH_SK за unwrap и TLS-PQC демо.
+Set FORITECH_SK for unwrap and TLS-PQC demos.
+
+Usage Policy
+
+This repository is provided for demonstration purposes only.
+No production deployment, redistribution, or derivative works are permitted
+without prior written consent.
 
 License
 
-MIT
-
----
-
-## NOTICE
-This repository is provided for demonstration purposes only.  
-The core implementation remains proprietary and closed-source.  
-No part of this repository may be reused, redistributed, or modified
-without prior written consent from the author.
-
-## Usage Policy
-This repository is provided for demonstration purposes only.  
-No production deployment, redistribution, or derivative works are permitted without prior written consent.
+All rights reserved © 2025 Forrybg
