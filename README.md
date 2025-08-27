@@ -75,3 +75,11 @@ Security Notes
 License
 
 MIT
+
+---
+
+## NOTICE
+This repository is provided for demonstration purposes only.  
+The core implementation remains proprietary and closed-source.  
+No part of this repository may be reused, redistributed, or modified
+without prior written consent from the author.
