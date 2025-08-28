@@ -2,3 +2,21 @@
 __pycache__/
 *.pyc
 certs/
+
+# local env
+.venv/
+
+# local certs/keys generated for demo
+certs/
+backups/
+
+# caches
+__pycache__/
+*.pyc
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+
+# vendored build outputs
+third_party/
