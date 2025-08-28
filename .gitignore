@@ -1,9 +1,4 @@
-.DS_Store
-pycache/
 .venv/
-*.enc
-*.out
-*.pem
-*.key
-*.bin
-*.zip
+__pycache__/
+*.pyc
+certs/

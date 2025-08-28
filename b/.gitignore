@@ -1,0 +1,7 @@
+# virtualenv / caches
+.venv/
+__pycache__/
+*.pyc
+
+# do NOT commit private TLS key used by the demo server
+certs/server_key.pem
