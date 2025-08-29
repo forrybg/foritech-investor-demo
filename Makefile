@@ -55,3 +55,7 @@ demo: wrap unwrap
 
 clean:
 	rm -f s.txt s.enc s.out
+
+.PHONY: doctor
+doctor:
+	@bash scripts/doctor.sh

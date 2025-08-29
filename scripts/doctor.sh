@@ -1,43 +1,38 @@
 #!/usr/bin/env bash
 set -euo pipefail
-echo "== Foritech Demo Doctor =="
-# Python check (prefer sibling venv if present)
-PY="${PY:-}"
-if [ -z "${PY}" ] && [ -x "../foritech-secure-system/.venv/bin/python" ]; then
-  PY="../foritech-secure-system/.venv/bin/python"
+
+PY="${PY:-python3}"
+echo "PY: $("$PY" -c 'import sys; print(sys.executable)')"
+
+# 1) imports
+"$PY" - <<'PY'
+import importlib, sys
+for m in ("oqs","cryptography","foritech"):
+    try:
+        importlib.import_module(m)
+        print(f"[OK] import {m}")
+    except Exception as e:
+        print(f"[ERR] import {m}: {e}")
+        raise SystemExit(2)
+PY
+
+# 2) files
+test -f certs/server_cert.pem || { echo "[ERR] missing certs/server_cert.pem"; exit 2; }
+test -f certs/server_key.pem  || { echo "[ERR] missing certs/server_key.pem";  exit 2; }
+
+# 3) hybrid extension present?
+if ! foritech x509-info --in certs/server_cert.pem 2>/dev/null | grep -q 'format=spki'; then
+  echo "[ERR] server_cert.pem is not FORITECH hybrid (SPKI). Re-run x509-make."
+  exit 2
 fi
-if [ -z "${PY}" ]; then
-  PY="$(command -v python3 || command -v python)"
-fi
-echo "[*] Python: ${PY}"
-"${PY}" -c "import sys; print('python', sys.version.split()[0])"
-# crypto libs
-if "${PY}" -c "import cryptography, oqs" 2>/dev/null; then
-  echo "[OK] cryptography + oqs available"
+echo "[OK] Hybrid X.509 (SPKI) detected"
+
+# 4) port free?
+if command -v fuser >/dev/null && fuser 8443/tcp >/dev/null 2>&1; then
+  echo "[WARN] TCP 8443 appears busy. You may need:"
+  echo "  fuser -k 8443/tcp 2>/dev/null || pkill -f tls_pqc_server.py || true"
 else
-  echo "[ERR] Missing 'cryptography' and/or 'oqs' in ${PY}" >&2
-  echo "     Tip: use the main repo venv: PY=../foritech-secure-system/.venv/bin/python" >&2
+  echo "[OK] TCP 8443 seems free"
 fi
-# SK env var
-if [ -n "${FORITECH_SK:-}" ] && [ -f "${FORITECH_SK}" ]; then
-  echo "[OK] FORITECH_SK set -> ${FORITECH_SK}"
-else
-  echo "[WARN] FORITECH_SK not set or file missing." >&2
-  echo "      export FORITECH_SK=\"\$HOME/.foritech/keys/kyber768_sec.bin\"" >&2
-fi
-# cert presence
-if [ -f certs/server_cert.pem ]; then
-  echo "[*] Cert present: certs/server_cert.pem"
-  if command -v foritech >/dev/null 2>&1; then
-    foritech x509-info --in certs/server_cert.pem || true
-  fi
-else
-  echo "[WARN] No certs/server_cert.pem (run scripts/make_certs.sh)" >&2
-fi
-if [ -f certs/server_key.pem ]; then
-  echo "[*] Key present: certs/server_key.pem (perms: \$(stat -c %a certs/server_key.pem 2>/dev/null || echo '?'))"
-else
-  echo "[WARN] No certs/server_key.pem (run scripts/make_certs.sh)" >&2
-fi
-echo "[i] If 8443 is busy:  fuser -k 8443/tcp 2>/dev/null || pkill -f tls_pqc_server.py || true"
+
 echo "[OK] Doctor finished."

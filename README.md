@@ -38,3 +38,31 @@ foritech unwrap --in s.enc --out s.out
 diff -u s.txt s.out && echo "OK ✅"
 
 This demo repo intentionally ignores certs/ in git. Do not commit secrets.
+
+---
+
+## Quickstart
+
+### One-time: self-signed hybrid cert (SPKI)
+```bash
+foritech x509-make --cn tls-demo --format spki \
+  --pqc-pub "$HOME/.foritech/keys/kyber768_pub.bin" \
+  --cert-out certs/server_cert.pem --key-out certs/server_key.pem
+foritech x509-info --in certs/server_cert.pem  # expect: format=spki-b64
+
+Run
+# Option A (use main repo Python with oqs+cryptography)
+make PY=../foritech-secure-system/.venv/bin/python server
+make PY=../foritech-secure-system/.venv/bin/python client
+
+# Option B (use this demo venv + install oqs)
+bash third_party/dev_install_oqs.sh
+make server
+make client
+
+Troubleshooting
+See docs/TROUBLESHOOTING.md
+.
+Doctor
+make doctor
+
