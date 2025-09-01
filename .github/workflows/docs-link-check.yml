@@ -20,7 +20,7 @@ jobs:
       - uses: lycheeverse/lychee-action@v2
         continue-on-error: true       # не блокира PR-а
         with:
-          args: --no-progress README.md docs/**/*.md
+          args: --no-progress README.md docs/**
           output: lychee/out.md
           format: markdown
           jobSummary: true
