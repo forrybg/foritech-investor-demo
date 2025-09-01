@@ -1,0 +1,29 @@
+name: Docs link check
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'README.md'
+  push:
+    branches: [ docs-pack ]
+    paths:
+      - 'docs/**'
+      - 'README.md'
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+      continue-on-error: true
+        continue-on-error: true       # не блокира PR-а
+        with:
+          failIfEmpty: false
+          args: --no-progress README.md docs/**
+          output: lychee/out.md
+          format: markdown
+          jobSummary: true
+          fail: false

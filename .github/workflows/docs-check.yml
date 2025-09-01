@@ -1,0 +1,14 @@
+name: Docs link check
+on:
+  pull_request:
+    paths: ["docs/**", "README.md"]
+  workflow_dispatch:
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+      continue-on-error: true
+        with: { args: --verbose --no-progress docs/** README.md }
+          failIfEmpty: false

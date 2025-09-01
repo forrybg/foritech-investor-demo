@@ -66,3 +66,29 @@ See docs/TROUBLESHOOTING.md
 Doctor
 make doctor
 
+
+## LAN сценарий (сървър на машина A, клиент на машина B)
+
+**На машина A (Linux, където е сървърът):**
+```bash
+cd ~/foritech-investor-demo
+export FORITECH_SK="$HOME/.foritech/keys/kyber768_sec.bin"
+HOST=0.0.0.0 PORT=8443 make PY=../foritech-secure-system/.venv/bin/python server
+
+На машина B (Linux, клиент):
+cd ~/foritech-investor-demo
+HOST=<IP-на-машина-A> PORT=8443 make PY=../foritech-secure-system/.venv/bin/python client
+# или:
+HOST=<IP-на-машина-A> PORT=8443 ./scripts/run_client.sh
+
+Ако получиш Connection refused, провери:
+
+дали сървърът на A слуша (0.0.0.0:8443),
+
+дали няма локален firewall,
+
+дали клиентът ползва правилния PY път до Python-а, където са инсталирани зависимостите.
+
+---
+**Investor Docs Pack** lives in this repo under [/docs](./docs).
+Core repo → https://github.com/forrybg/foritech-secure-system
