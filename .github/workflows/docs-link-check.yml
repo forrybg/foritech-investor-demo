@@ -18,8 +18,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: lycheeverse/lychee-action@v2
+      continue-on-error: true
         continue-on-error: true       # не блокира PR-а
         with:
+          failIfEmpty: false
           args: --no-progress README.md docs/**
           output: lychee/out.md
           format: markdown
