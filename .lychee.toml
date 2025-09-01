@@ -1,8 +1,8 @@
 verbose = true
 no_progress = true
 max_concurrency = 8
-timeout = "15s"
-retry_wait_time = "2s"
+timeout = 15
+retry_wait_time = 2
 retry_count = 2
 
 # приемаме редиректи/ограничения
