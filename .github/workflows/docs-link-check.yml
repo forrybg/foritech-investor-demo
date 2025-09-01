@@ -2,6 +2,12 @@ name: Docs link check
 
 on:
   pull_request:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'README.md'
+  push:
+    branches: [ docs-pack ]
     paths:
       - 'docs/**'
       - 'README.md'
@@ -11,10 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Lychee link check
-        uses: lycheeverse/lychee-action@v2
-          continue-on-error: true
+      - uses: lycheeverse/lychee-action@v2
+        continue-on-error: true       # не блокира PR-а
         with:
-          args: --no-progress --config .lychee.toml docs/**/*.md README.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          args: --no-progress README.md docs/**/*.md
+          output: lychee/out.md
+          format: markdown
+          jobSummary: true
+          fail: false
