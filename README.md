@@ -1,4 +1,4 @@
-docs-pack
+
 # Foritech Secure System — Investor/Grant Docs (v0.5.x)
 TRL: 4–5 now → target 6–7. See docs/ for overview, architecture, ops, security, funding one-pager & TRL/KPI.
 Contacts: VENETKA'21 Kft · Hristofor Hristov · forrybg.hh@gmail.com · +359 885 012 401
@@ -25,10 +25,6 @@ The core implementation (SDK, tests, PQC/TLS integration) lives in the main repo
 ---
 
 ## Quick start
-
-```bash
-git clone https://github.com/forrybg/foritech-investor-demo.git
-cd foritech-investor-demo
 
 # (optional) run the link-check locally if you have lychee installed
 # lychee --no-progress README.md docs
@@ -65,3 +61,4 @@ For issues/requests, please open a GitHub issue.
 
 https://forrybg.github.io/foritech-investor-demo
 main
+
