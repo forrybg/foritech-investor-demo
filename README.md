@@ -4,7 +4,7 @@
 
 This repository contains the **investor-facing documentation pack** and **demo helper scripts** for the FORITECH secure system.
 The core implementation (SDK, tests, PQC/TLS integration) lives in the main repo:  
-➡️ **foritech-secure-system**: https://github.com/forrybg/foritech-secure-system
+➡️ **foritech-secure-system**: [core repo](https://github.com/forrybg/foritech-secure-system)
 
 ---
 
@@ -38,7 +38,7 @@ SWOT: docs/swot.md
 More docs: docs/
 
 If you need the product code, go to the core repository:
-➡️ https://github.com/forrybg/foritech-secure-system
+➡️ [core repo](https://github.com/forrybg/foritech-secure-system)
 Roadmap (short)
 
 Finalize investor pack (docs & visuals)

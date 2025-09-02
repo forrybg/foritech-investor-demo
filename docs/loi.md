@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # 📬 Letters of Intent – Fori Tech Secure System
 
 This section includes sample letters of intent (LoI) from potential pilot clients and partners who express interest in participating in the Fori Tech Secure System project.

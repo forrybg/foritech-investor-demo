@@ -16,4 +16,4 @@ Welcome! This folder contains the **investor-facing documentation pack**.
 - Backup & ops notes → [BACKUP.md](BACKUP.md)
 
 > For the product code & tests see the core repo:  
-> https://github.com/forrybg/foritech-secure-system
+> [core repo](https://github.com/forrybg/foritech-secure-system)

@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # 🧑‍💼 Short Biography – Hristofor Lyudmilov Hristov
 
 Hristofor Hristov is a cybersecurity and infrastructure specialist with over five years of experience in network operations, system administration, and digital security. He currently works as a Network Operations Specialist at Vivacom, where he manages LAN/WAN topologies, VPN configurations, and real-time troubleshooting.

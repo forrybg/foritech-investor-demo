@@ -12,7 +12,7 @@ The Fori Tech Secure System is currently at TRL level 5–6, based on the Europe
 - Integration of SIEM tools (Wazuh, Suricata) and AI-based log analysis is underway.
 - The system has been deployed internally for testing and validation with simulated data.
 
-### 📌 Next Steps:
+### 📌 Next steps
 - Finalize Web UI and NFT engine
 - Conduct pilot deployment with 3–5 SMEs
 - Optimize performance and security based on real-world feedback
