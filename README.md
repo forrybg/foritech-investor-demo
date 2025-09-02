@@ -1,3 +1,8 @@
+docs-pack
+# Foritech Secure System — Investor/Grant Docs (v0.5.x)
+TRL: 4–5 now → target 6–7. See docs/ for overview, architecture, ops, security, funding one-pager & TRL/KPI.
+Contacts: VENETKA'21 Kft · Hristofor Hristov · forrybg.hh@gmail.com · +359 885 012 401
+=======
 # FORITECH — Investor Demo Pack
 
 [![Docs link check](https://github.com/forrybg/foritech-investor-demo/actions/workflows/docs-check.yml/badge.svg)](https://github.com/forrybg/foritech-investor-demo/actions/workflows/docs-check.yml)
@@ -58,4 +63,5 @@ License: LICENSE
 
 For issues/requests, please open a GitHub issue.
 
-https://forrybg.github.io/foritech-investor-demo/
+https://forrybg.github.io/foritech-investor-demo
+main
