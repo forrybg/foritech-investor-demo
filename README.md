@@ -92,3 +92,7 @@ HOST=<IP-на-машина-A> PORT=8443 ./scripts/run_client.sh
 ---
 **Investor Docs Pack** lives in this repo under [/docs](./docs).
 Core repo → https://github.com/forrybg/foritech-secure-system
+
+## Policies
+- **Security Policy:** see [`.github/SECURITY.md`](.github/SECURITY.md)
+- **Code of Conduct:** see [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
