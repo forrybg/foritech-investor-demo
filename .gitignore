@@ -23,3 +23,7 @@ third_party/
 
 repo_support.sh
 scripts/run_client.sh
+
+# Archives
+*.zip
+
