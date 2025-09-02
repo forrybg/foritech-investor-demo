@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # 📅 Project Timeline – ForiTech Secure System
 
 The project is planned over an 18-month period, divided into clear phases covering preparation, development, testing, deployment, and expansion.
@@ -128,14 +129,14 @@ The success of ForiTech Secure System will be measured through a set of Key Perf
 
 ###    Strategic Milestones
 
-Month	        KPI	                        Description    	                            Responsible
-Month 3	        SME Outreach	                Initial contact with pilot SMEs initiate    Project Coordinator
-Month 6	        SIEM Module Deployed	        Core SIEM system operational and tested	    DevOps Engineer
-Month 7	        Vault + Web3 Integration	License engine connected to Vault	    Full-stack Developers
-Month 9	        UI/UX Finalized	                Client dashboard ready for pilot users	    UI/UX Designer
-Month 10	Pilot Testing Begins	        SMEs onboarded and using the system	    Business Analyst
-Month 12	Feedback Analysis        	SME feedback collected and analyzed	    Marketing + Analyst
-Month 14	AI/ML Engine Operational	Anomaly detection module active	            AI/ML Engineer
-Month 16	Subscription Model Defined	Commercial model prepared for launch	    Project Coordinator
-Month 17	Open-source Release	        Selected modules published on GitHub	    Full-stack + DevOps
-Month 18	Final Impact Report	        Submitted to EC with KPIs and outcomes	    Project Coordinator
+Month         KPI                         Description                                 Responsible
+Month 3         SME Outreach                  Initial contact with pilot SMEs initiate    Project Coordinator
+Month 6         SIEM Module Deployed          Core SIEM system operational and tested     DevOps Engineer
+Month 7         Vault + Web3 Integration  License engine connected to Vault     Full-stack Developers
+Month 9         UI/UX Finalized                 Client dashboard ready for pilot users      UI/UX Designer
+Month 10  Pilot Testing Begins          SMEs onboarded and using the system     Business Analyst
+Month 12  Feedback Analysis         SME feedback collected and analyzed     Marketing + Analyst
+Month 14  AI/ML Engine Operational  Anomaly detection module active             AI/ML Engineer
+Month 16  Subscription Model Defined  Commercial model prepared for launch      Project Coordinator
+Month 17  Open-source Release         Selected modules published on GitHub      Full-stack + DevOps
+Month 18  Final Impact Report         Submitted to EC with KPIs and outcomes      Project Coordinator
