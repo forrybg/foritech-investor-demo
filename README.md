@@ -58,4 +58,4 @@ License: LICENSE
 
 For issues/requests, please open a GitHub issue.
 
-Docs: https://forrybg.github.io/foritech-investor-demo/
+https://forrybg.github.io/foritech-investor-demo/
