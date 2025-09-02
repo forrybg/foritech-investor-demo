@@ -1,5 +1,16 @@
 {
   "default": true,
-  "MD013": { "line_length": 120 },
-  "MD033": false
+
+  "MD013": { "line_length": 200, "ignore_code_blocks": true, "ignore_tables": true },
+
+  "MD022": false,  // blanks around headings
+  "MD032": false,  // blanks around lists
+  "MD031": false,  // blanks around fenced code
+  "MD040": false,  // fenced code language
+  "MD034": false,  // bare URLs
+  "MD012": false,  // multiple blank lines
+  "MD010": false,  // hard tabs
+  "MD036": false,  // emphasis as heading
+  "MD001": false,  // heading increment
+  "MD026": false   // trailing punctuation in headings
 }
