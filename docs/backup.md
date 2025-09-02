@@ -1,28 +1,25 @@
-# Backup / Diagnostics
+# Backup & Restore
 
 ## Quick diagnostics
-Run:
-./scripts/diag_status.sh
-Shows repo/tags, Python & package versions, Foritech CLI path, keys dir, local PKI.
+
+- List tracked archives
+- Verify integrity (hash)
+- Check last snapshot time
 
 ## Snapshot backup (local, out-of-git)
-Run:
 
-./scripts/backup_snapshot.sh
-Creates `backups/<timestamp>/` with:
-* `repo-tracked.tar.gz` — current tracked files
-* `HEAD.txt`, `status.txt` — metadata
-* `foritech-keys.tar.gz` — your `~/.foritech/keys` (if present)
-* `pki.tar.gz` — local `./pki` (if present)
+* `repo-tracked.tar.gz` — current repo state (tracked files only)
+* `pki.tar.gz` — PKI DB (public materials)
+* `foritech-keys.tar.gz` — **never commit**; offsite only
 
-> **Important:** `backups/` is not tracked by git (recommended).  
-> To hide it from `git status` locally:
-> ```
-> echo backups/ >> .git/info/exclude
-> ```
+```bash
+# example
+./scripts/pki_init_db.sh
 
-## Offsite
-Copy `backups/<timestamp>/` to an offline/secure location.
+Offsite
 
-## Restore (example)
-Untar what you need (repo snapshot, keys, pki). Keys & PKI contain secrets — handle with care.
+Push archives to object storage (MinIO/S3)
+
+Restore (example)
+
+Extract archives, then reinit PKI DB, restart services
