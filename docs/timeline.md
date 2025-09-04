@@ -127,7 +127,7 @@ The success of ForiTech Secure System will be measured through a set of Key Perf
 
 > These KPIs ensure that the project delivers measurable value, maintains transparency, and builds a foundation for long-term growth beyond the grant period.
 
-###    Strategic Milestones
+### Strategic Milestones
 
 Month         KPI                         Description                                 Responsible
 Month 3         SME Outreach                  Initial contact with pilot SMEs initiate    Project Coordinator
