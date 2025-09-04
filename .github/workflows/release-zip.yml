@@ -4,22 +4,24 @@ on:
 permissions:
   contents: write
 jobs:
-  zip:
+  zip-and-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build site (optional)
-        run: |
-          echo "Skip if you don't need site build here"
-      - name: Create ZIP
+
+      - name: Pack investor docs
         run: |
           mkdir -p dist
           zip -r dist/foritech-investor-pack.zip docs README.md LICENSE 2>/dev/null || true
-      - name: Create GitHub Release (tag `docs-pack`)
-        uses: softprops/action-gh-release@v2
+          ls -lh dist
+
+      - name: Publish GitHub Release (tag=docs-pack)
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: docs-pack
+          tag: docs-pack
           name: Investor Pack
-          files: dist/foritech-investor-pack.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: dist/foritech-investor-pack.zip
+          allowUpdates: true          # update same tag next time
+          replacesArtifacts: true
+          makeLatest: true            # marks as "Latest"
+          token: ${{ secrets.GITHUB_TOKEN }}
