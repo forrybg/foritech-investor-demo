@@ -15,5 +15,5 @@ Welcome! This folder contains the **investor-facing documentation pack**.
 - Architecture overview → [architecture.md](architecture.md) (image: `architecture.png`)
 - Backup & ops notes → [backup.md](backup.md)
 
-> For the product code & tests see the core repo:  
-> [core repo](https://github.com/forrybg/foritech-secure-system)
+> For the product code & tests see the core repo:
+> [core repo](https://github.com/foritech-secure-system/foritech-secure-system)

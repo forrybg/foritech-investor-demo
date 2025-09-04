@@ -7,9 +7,9 @@ This section includes sample letters of intent (LoI) from potential pilot client
 
 ## 📝 Sample Letter of Intent
 
-**Organization Name**: [Partner SME Name]  
-**Contact Person**: [Name, Title]  
-**Email**: [email@example.com]  
+**Organization Name**: [Partner SME Name]
+**Contact Person**: [Name, Title]
+**Email**: [email@example.com]
 **Date**: [DD/MM/YYYY]
 
 **Subject**: Letter of Intent to Participate in Fori Tech Secure System Pilot
@@ -22,10 +22,10 @@ As a small enterprise operating in [industry], we recognize the importance of se
 
 We understand that this letter does not constitute a binding agreement, but confirms our intent to engage with the project team upon successful grant approval.
 
-Sincerely,  
-[Name]  
-[Title]  
-[Organization Name]  
+Sincerely,
+[Name]
+[Title]
+[Organization Name]
 [Signature if applicable]
 
 ---

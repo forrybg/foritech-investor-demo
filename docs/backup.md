@@ -8,9 +8,9 @@
 
 ## Snapshot backup (local, out-of-git)
 
-* `repo-tracked.tar.gz` — current repo state (tracked files only)
-* `pki.tar.gz` — PKI DB (public materials)
-* `foritech-keys.tar.gz` — **never commit**; offsite only
+- `repo-tracked.tar.gz` — current repo state (tracked files only)
+- `pki.tar.gz` — PKI DB (public materials)
+- `foritech-keys.tar.gz` — **never commit**; offsite only
 
 ```bash
 # example

@@ -1,0 +1,30 @@
+repos:
+  # Базови hook-ове
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+        exclude: ^\.secrets\.baseline$   # не спира комит заради baseline-а
+
+  # Markdown lint (ако имаш .markdownlint.yaml – иначе махни целия блок)
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.45.0
+    hooks:
+      - id: markdownlint
+        args: [--config, .markdownlint.yaml]
+        files: \.(md|markdown)$
+
+  # Сканер за тайни
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: |
+          (?x)^(
+            .*\.png|.*\.jpg|.*\.jpeg|.*\.svg|.*\.pdf|
+            .*\.zip|.*\.gz|.*\.tgz|
+            backups/.*|repo_bundle_.*
+          )$
