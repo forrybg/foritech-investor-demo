@@ -9,7 +9,7 @@ Contacts: VENETKA'21 Kft · Hristofor Hristov · forrybg.hh@gmail.com · +359 88
 
 This repository contains the **investor-facing documentation pack** and **demo helper scripts** for the FORITECH secure system.
 The core implementation (SDK, tests, PQC/TLS integration) lives in the main repo:  
-➡️ **foritech-secure-system**: [core repo](https://github.com/forrybg/foritech-secure-system)
+➡️ **foritech-secure-system**: [core repo]
 
 ---
 
