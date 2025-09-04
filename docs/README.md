@@ -3,6 +3,11 @@
 Welcome! This folder contains the **investor-facing documentation pack**.
 
 ## Quick links
+- **Download investor pack (ZIP)** → https://github.com/forrybg/foritech-investor-demo/releases/latest/download/foritech-investor-pack.zip
+- **Download investor pack (ZIP)** → https://github.com/forrybg/foritech-investor-demo/releases/latest/download/foritech-investor-pack.zip
+- Risks → risks.md
+- Budget → budget.md
+- One-Pager → one-pager.md
 - TRL evidence → [trl.md](trl.md)
 - Team → [team.md](team.md)
 - SWOT → [swot.md](swot.md)

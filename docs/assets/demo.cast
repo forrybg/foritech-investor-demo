@@ -1,0 +1,12 @@
+{"version": 2, "width": 80, "height": 24, "timestamp": 1725490000, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.05, "o", "$ git clone https://github.com/foritech-secure-system/foritech-secure-system.git\r\n"]
+[0.60, "o", "Cloning into 'foritech-secure-system'...\r\n"]
+[1.20, "o", "$ cd foritech-secure-system && python -m venv .venv && source .venv/bin/activate\r\n"]
+[2.00, "o", "(venv) $ pip install -e .[dev]\r\n"]
+[2.50, "o", "(venv) $ foritech keygen --kem Kyber768 --out ~/.foritech/keys/kyber768_pub.bin\r\n"]
+[3.30, "o", "generating PQC keys... done\r\n"]
+[3.80, "o", "(venv) $ foritech x509-make --cn Demo --pqc-pub ~/.foritech/keys/kyber768_pub.bin --cert-out demo.pem --key-out demo.key\r\n"]
+[4.60, "o", "hybrid X.509 ok\r\n"]
+[5.10, "o", "(venv) $ python scripts/tls_pqc_server.py --cert demo.pem --key demo.key &\r\n"]
+[6.00, "o", "(venv) $ python scripts/tls_pqc_client.py --host 127.0.0.1 --port 8443\r\n"]
+[6.80, "o", "TLS-PQC handshake OK\r\n"]
