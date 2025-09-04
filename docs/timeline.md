@@ -66,32 +66,32 @@ ForiTech Secure System acknowledges key risks across technical, operational, and
 
 ### 🔧 Technical Risks
 
-- **Integration Complexity**  
-  *Risk*: Difficulty in integrating SIEM, Vault, and Web3 modules  
+- **Integration Complexity**
+  *Risk*: Difficulty in integrating SIEM, Vault, and Web3 modules
   *Mitigation*: Modular architecture, early prototyping, and dedicated DevOps support
 
-- **AI Model Performance**  
-  *Risk*: Inaccurate anomaly detection or false positives  
+- **AI Model Performance**
+  *Risk*: Inaccurate anomaly detection or false positives
   *Mitigation*: Continuous training, SME feedback loops, fallback mechanisms
 
 ### 🧑‍💼 Operational Risks
 
-- **Team Availability**  
-  *Risk*: Delays due to freelance turnover or recruitment gaps  
+- **Team Availability**
+  *Risk*: Delays due to freelance turnover or recruitment gaps
   *Mitigation*: Flexible contracts, backup contributors, coordinator oversight
 
-- **Infrastructure Delays**  
-  *Risk*: Late deployment of VPN, cloud, or storage systems  
+- **Infrastructure Delays**
+  *Risk*: Late deployment of VPN, cloud, or storage systems
   *Mitigation*: Early provisioning, vendor agreements, phased rollout
 
 ### 📉 Strategic Risks
 
-- **SME Adoption Resistance**  
-  *Risk*: Low engagement from pilot clients or market hesitation  
+- **SME Adoption Resistance**
+  *Risk*: Low engagement from pilot clients or market hesitation
   *Mitigation*: Clear onboarding, training materials, and support channels
 
-- **Legal & Compliance Challenges**  
-  *Risk*: GDPR misalignment or licensing issues  
+- **Legal & Compliance Challenges**
+  *Risk*: GDPR misalignment or licensing issues
   *Mitigation*: External legal advisory, audit trails, and documentation
 
 > Risk management is embedded in the project’s structure, with proactive planning, fallback options, and expert support ensuring resilience throughout the 18-month lifecycle.
