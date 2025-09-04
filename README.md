@@ -39,7 +39,7 @@ SWOT: docs/swot.md
 More docs: docs/
 
 If you need the product code, go to the core repository:
-➡️ [core repo](https://github.com/foritech-secure-system/foritech-secure-system/tree/main)
+➡️ [core repo]()
 Roadmap (short)
 
 Finalize investor pack (docs & visuals)
@@ -61,5 +61,6 @@ For issues/requests, please open a GitHub issue.
 
 https://forrybg.github.io/foritech-investor-demo
 main
+
 
 
