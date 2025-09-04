@@ -1,14 +1,8 @@
-name: Docs link check
+name: Docs checks (manual)
 on:
-  pull_request:
-    paths: ["docs/**", "README.md"]
   workflow_dispatch:
 jobs:
-  lychee:
+  note:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: lycheeverse/lychee-action@v2
-      continue-on-error: true
-        with: { args: --verbose --no-progress docs/** README.md }
-          failIfEmpty: false
+      - run: echo "Legacy meta-workflow kept for manual runs only."

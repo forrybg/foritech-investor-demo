@@ -1,0 +1,55 @@
+name: asciicast2gif
+on:
+  push:
+    branches: [ docs-onepager, main ]
+    paths:
+      - "docs/assets/demo.cast"
+      - ".github/workflows/asciicast2gif.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-gif:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Print files (pre)
+        run: |
+          echo "[pre] Listing docs/assets:"
+          ls -lah docs/assets || true
+
+      - name: Convert cast -> gif
+        if: ${{ hashFiles('docs/assets/demo.cast') != '' }}
+        run: |
+          echo "[convert] Pulling converter image (GHCR)…"
+          docker pull ghcr.io/asciinema/asciicast2gif:latest
+          echo "[convert] Running converter…"
+          docker run --rm -v "$PWD/docs/assets:/data" ghcr.io/asciinema/asciicast2gif:latest -S 2 demo.cast demo.gif
+          echo "[convert] Result:"
+          ls -lah docs/assets/demo.gif
+
+      - name: Commit GIF (if changed)
+        run: |
+          if [ -f docs/assets/demo.gif ]; then
+            if ! git diff --quiet -- docs/assets/demo.gif; then
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add docs/assets/demo.gif
+              git commit -m "chore: generate demo.gif from demo.cast"
+              git push
+              echo "[commit] demo.gif committed."
+            else
+              echo "[commit] No changes in demo.gif."
+            fi
+          else
+            echo "[commit] No GIF produced."
+          fi
+
+      - name: Print files (post)
+        run: |
+          echo "[post] Listing docs/assets:"
+          ls -lah docs/assets || true
