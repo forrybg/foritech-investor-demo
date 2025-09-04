@@ -1,11 +1,12 @@
 name: asciicast2gif
 on:
+  # Ръчкa + автоматично само когато пипнем demo.cast или самия workflow
+  workflow_dispatch:
   push:
-    branches: [ docs-onepager, main ]
+    branches: [ main ]
     paths:
       - "docs/assets/demo.cast"
       - ".github/workflows/asciicast2gif.yml"
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,6 +17,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Print files (pre)
         run: |
@@ -30,7 +38,7 @@ jobs:
           echo "[convert] Running converter…"
           docker run --rm -v "$PWD/docs/assets:/data" ghcr.io/asciinema/asciicast2gif:latest -S 2 demo.cast demo.gif
           echo "[convert] Result:"
-          ls -lah docs/assets/demo.gif
+          ls -lah docs/assets/demo.gif || true
 
       - name: Commit GIF (if changed)
         run: |
