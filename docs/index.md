@@ -2,7 +2,6 @@
 
 Welcome! This folder contains the **investor-facing documentation pack**.
 ## Quick links
-- **Download investor pack (ZIP)** → [ZIP](https://github.com/forrybg/foritech-investor-demo/releases/latest/download/foritech-investor-pack.zip)
 - **➡️ [Download investor pack (ZIP)](https://github.com/forrybg/foritech-investor-demo/releases/latest/download/foritech-investor-pack.zip)**
 - Demo (GIF) → [Demo (GIF)](assets/demo.gif)
 ## [![Demo (GIF)](assets/demo.gif)](assets/demo.gif)
