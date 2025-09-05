@@ -1,9 +1,6 @@
-
 name: asciicast2gif
 on:
-  # Ръчно пускане от Actions
   workflow_dispatch:
-  # Авто при промяна на .cast файла
   push:
     paths:
       - 'docs/assets/*.cast'
@@ -15,31 +12,21 @@ jobs:
   build-gif:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: List assets (pre)
-        run: ls -la docs/assets || true
+      - name: Ensure assets dir
+        run: mkdir -p docs/assets && ls -la docs/assets || true
 
-      - name: Login to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      # Строим контейнера директно от официалното repo
+      - name: Build converter image (asciinema/asciicast2gif)
+        run: |
+          docker build -t local/asciicast2gif 'https://github.com/asciinema/asciicast2gif.git#main'
 
       - name: Convert cast -> gif
-        if: ${{ hashFiles('docs/assets/demo.cast') != '' }}
-        uses: addnab/docker-run-action@v3
-        with:
-          image: ghcr.io/asciinema/asciicast2gif:latest
-          options: -v ${{ github.workspace }}/docs/assets:/data -w /data
-          run: |
-            asciicast2gif -S 2 demo.cast demo.gif
-
-      - name: Verify outputs
         run: |
-          test -s docs/assets/demo.gif
+          test -s docs/assets/demo.cast
+          docker run --rm -v "$PWD/docs/assets:/data" -w /data local/asciicast2gif \
+            -S 2 demo.cast demo.gif
           ls -lh docs/assets/demo.gif
 
       - name: Commit GIF (if changed)
