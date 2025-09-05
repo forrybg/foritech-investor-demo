@@ -1,30 +1,19 @@
-# FORITECH Investor Docs
 
-Welcome! This folder contains the **investor-facing documentation pack**.
-## Quick links
-- **➡️ [Download investor pack (ZIP)](https://github.com/forrybg/foritech-investor-demo/releases/latest/download/foritech-investor-pack.zip)**
-- Demo (GIF) → [Demo (GIF)](assets/demo.gif)
-## [![Demo (GIF)](assets/demo.gif)](assets/demo.gif)
--![Demo (GIF)](assets/demo.gif)
-- One-Pager → one-pager.md
-- Budget → budget.md
-- Risks → risks.md
-- TRL evidence → [trl.md](trl.md)
-- Team → [team.md](team.md)
-- SWOT → [swot.md](swot.md)
-- Timeline → [timeline.md](timeline.md)
-- Quickstart (demo) → [quickstart.md](quickstart.md)
-- Ethics & data handling → [ethics.md](ethics.md)
-- Letter of interest (template) → [loi.md](loi.md)
-- [Overview](overview.md)
-- [Architecture](architecture.md)
-- [Operations](operations.md)
-- [Security](security.md)
-- Funding pack:
-  - [One-pager](funding_pack/one_pager.md)
-  - [TRL & KPI](funding_pack/trl_kpi.md)
-## Also in this folder
-- Architecture overview → [architecture.md](architecture.md) (image: `architecture.png`)
-- Backup & ops notes → [backup.md](backup.md)
-> For the product code & tests see the core repo:
-> [core repo](https://github.com/foritech-secure-system/foritech-secure-system)
+--- a/docs/index.md
++++ b/docs/index.md
+@@
+ # FORITECH Investor Docs
+ 
++**➡️ [Download investor pack (ZIP)](https://github.com/forrybg/foritech-investor-demo/releases/latest/download/foritech-investor-pack.zip)**
++
++[![Demo (GIF)](assets/demo.gif)](assets/demo.gif)
++
++### What's inside the ZIP
++- One-Pager (problem, solution, market, traction)
++- TRL & KPI snapshot
++- Architecture overview (image + short notes)
++- Timeline & milestones
++- Risks & mitigations
++- LOI (letter of intent) template
++
+ ## Quick links
