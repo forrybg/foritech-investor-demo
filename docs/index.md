@@ -2,7 +2,7 @@
 --- a/docs/index.md
 +++ b/docs/index.md
 @@
- # FORITECH Investor Docs
+# FORITECH Investor Docs
  
 **➡️ [Download investor pack (ZIP)](https://github.com/forrybg/foritech-investor-demo/releases/latest/download/foritech-investor-pack.zip)**
 
