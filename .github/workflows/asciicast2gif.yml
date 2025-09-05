@@ -14,13 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Ensure assets dir
-        run: mkdir -p docs/assets && ls -la docs/assets || true
-
-      # Строим контейнера директно от официалното repo
-      - name: Build converter image (asciinema/asciicast2gif)
+      - name: Build converter image (from source)
         run: |
-          docker build -t local/asciicast2gif 'https://github.com/asciinema/asciicast2gif.git#main'
+          docker build -t local/asciicast2gif 'https://github.com/asciinema/asciicast2gif.git#master'
 
       - name: Convert cast -> gif
         run: |
