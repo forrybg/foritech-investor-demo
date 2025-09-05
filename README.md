@@ -7,3 +7,5 @@ Investor-facing documentation pack for the project.
 
 See `docs/` for TRL/KPI, roadmap, quickstart and architecture.
 zip -r foritech-investor-pack.zip docs README.md
+# GitHub → Releases → Draft a new release
+# Tag: docs-pack  | Title: Investor Pack | прикачи ZIP-а | Publish
