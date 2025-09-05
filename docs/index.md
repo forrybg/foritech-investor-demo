@@ -1,4 +1,5 @@
-
+[![Demo — GIF](https://img.shields.io/badge/Demo-GIF-00B2FF?logo=github&logoColor=white)](assets/demo.gif)
+[![Download — Investor Pack (ZIP)](https://img.shields.io/badge/Download-ZIP-2ea44f?logo=github)](https://github.com/forrybg/foritech-investor-demo/releases/latest/download/foritech-investor-pack.zip)
 --- a/docs/index.md
 +++ b/docs/index.md
 @@
