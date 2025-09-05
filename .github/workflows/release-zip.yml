@@ -13,24 +13,23 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist
-          echo "[pack] repo root:" && ls -lah
-          echo "[pack] docs tree:" && ls -lah docs || true
-
-          # Задължително създай ZIP (без да изискваме LICENSE)
+          # правим архива (LICENSE е опционален)
           zip -r dist/foritech-investor-pack.zip docs README.md
           if [ -f LICENSE ]; then zip -u dist/foritech-investor-pack.zip LICENSE; fi
-
-          echo "[pack] dist:" && ls -lah dist
-          # fail ако липсва/празен
+          # fail ако няма/празен
           test -s dist/foritech-investor-pack.zip
+          ls -lh dist
 
-      - name: Publish GitHub Release (tag=docs-pack)
+      - name: Compute rolling tag
+        id: tag
+        run: echo "TAG=docs-pack-$(date +%Y%m%d-%H%M%S)" >> "$GITHUB_OUTPUT"
+
+      - name: Publish GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: docs-pack
+          tag: ${{ steps.tag.outputs.TAG }}
           name: Investor Pack
           artifacts: dist/foritech-investor-pack.zip
-          allowUpdates: true
-          replacesArtifacts: true
+          allowUpdates: false
           makeLatest: true
-          token: ${{ secrets.GITHUB_TOKEN }
+          token: ${{ secrets.GITHUB_TOKEN }}
