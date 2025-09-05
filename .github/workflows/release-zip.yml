@@ -16,13 +16,12 @@ jobs:
           echo "[pack] repo root:" && ls -lah
           echo "[pack] docs tree:" && ls -lah docs || true
 
-          # Създай ZIP само от наличните файлове
+          # Задължително създай ZIP (без да изискваме LICENSE)
           zip -r dist/foritech-investor-pack.zip docs README.md
-          # Ако имаш LICENSE, добави го, но не е задължително
           if [ -f LICENSE ]; then zip -u dist/foritech-investor-pack.zip LICENSE; fi
 
           echo "[pack] dist:" && ls -lah dist
-          # Гарантирай, че файлът е създаден и не е празен
+          # fail ако липсва/празен
           test -s dist/foritech-investor-pack.zip
 
       - name: Publish GitHub Release (tag=docs-pack)
@@ -34,4 +33,4 @@ jobs:
           allowUpdates: true
           replacesArtifacts: true
           makeLatest: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }
