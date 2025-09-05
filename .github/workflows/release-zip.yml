@@ -13,8 +13,15 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist
+ chore/release-rolling-tag
+          # правим архива (LICENSE е опционален)
           zip -r dist/foritech-investor-pack.zip docs README.md
           if [ -f LICENSE ]; then zip -u dist/foritech-investor-pack.zip LICENSE; fi
+          # fail ако няма/празен
+=======
+          zip -r dist/foritech-investor-pack.zip docs README.md
+          if [ -f LICENSE ]; then zip -u dist/foritech-investor-pack.zip LICENSE; fi
+main
           test -s dist/foritech-investor-pack.zip
           ls -lh dist
 
