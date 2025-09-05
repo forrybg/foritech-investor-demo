@@ -13,16 +13,10 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist
-          echo "[pack] repo root:" && ls -lah
-          echo "[pack] docs tree:" && ls -lah docs || true
-
-          # Задължително създай ZIP (без да изискваме LICENSE)
           zip -r dist/foritech-investor-pack.zip docs README.md
           if [ -f LICENSE ]; then zip -u dist/foritech-investor-pack.zip LICENSE; fi
-
-          echo "[pack] dist:" && ls -lah dist
-          # fail ако липсва/празен
           test -s dist/foritech-investor-pack.zip
+          ls -lh dist
 
       - name: Publish GitHub Release (tag=docs-pack)
         uses: ncipollo/release-action@v1
@@ -33,4 +27,4 @@ jobs:
           allowUpdates: true
           replacesArtifacts: true
           makeLatest: true
-          token: ${{ secrets.GITHUB_TOKEN }
+          token: ${{ secrets.GITHUB_TOKEN }}
