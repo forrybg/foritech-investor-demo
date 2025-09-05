@@ -1,12 +1,12 @@
+
 name: asciicast2gif
 on:
-  # Ръчкa + автоматично само когато пипнем demo.cast или самия workflow
+  # Ръчно пускане от Actions
   workflow_dispatch:
+  # Авто при промяна на .cast файла
   push:
-    branches: [ main ]
     paths:
-      - "docs/assets/demo.cast"
-      - ".github/workflows/asciicast2gif.yml"
+      - 'docs/assets/*.cast'
 
 permissions:
   contents: write
@@ -18,6 +18,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: List assets (pre)
+        run: ls -la docs/assets || true
+
       - name: Login to GHCR
         uses: docker/login-action@v3
         with:
@@ -25,39 +28,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Print files (pre)
-        run: |
-          echo "[pre] Listing docs/assets:"
-          ls -lah docs/assets || true
-
       - name: Convert cast -> gif
         if: ${{ hashFiles('docs/assets/demo.cast') != '' }}
+        uses: addnab/docker-run-action@v3
+        with:
+          image: ghcr.io/asciinema/asciicast2gif:latest
+          options: -v ${{ github.workspace }}/docs/assets:/data -w /data
+          run: |
+            asciicast2gif -S 2 demo.cast demo.gif
+
+      - name: Verify outputs
         run: |
-          echo "[convert] Pulling converter image (GHCR)…"
-          docker pull ghcr.io/asciinema/asciicast2gif:latest
-          echo "[convert] Running converter…"
-          docker run --rm -v "$PWD/docs/assets:/data" ghcr.io/asciinema/asciicast2gif:latest -S 2 demo.cast demo.gif
-          echo "[convert] Result:"
-          ls -lah docs/assets/demo.gif || true
+          test -s docs/assets/demo.gif
+          ls -lh docs/assets/demo.gif
 
       - name: Commit GIF (if changed)
-        run: |
-          if [ -f docs/assets/demo.gif ]; then
-            if ! git diff --quiet -- docs/assets/demo.gif; then
-              git config user.name "github-actions[bot]"
-              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-              git add docs/assets/demo.gif
-              git commit -m "chore: generate demo.gif from demo.cast"
-              git push
-              echo "[commit] demo.gif committed."
-            else
-              echo "[commit] No changes in demo.gif."
-            fi
-          else
-            echo "[commit] No GIF produced."
-          fi
-
-      - name: Print files (post)
-        run: |
-          echo "[post] Listing docs/assets:"
-          ls -lah docs/assets || true
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: update demo GIF (auto)"
+          file_pattern: docs/assets/demo.gif
