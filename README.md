@@ -6,3 +6,4 @@ Investor-facing documentation pack for the project.
 - Core repo: private (org: foritech-secure-system)
 
 See `docs/` for TRL/KPI, roadmap, quickstart and architecture.
+zip -r foritech-investor-pack.zip docs README.md
